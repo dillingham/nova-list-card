@@ -197,9 +197,7 @@ Also includes resource specific classes etc
 ```
 Also can target specific rows
 ```css
-.nova-list-card-item-1 {
-    color: green;
-}
+.nova-list-card-item-1 {}
 .nova-list-card-item-2 {}
 .nova-list-card-item-3 {}
 ```
