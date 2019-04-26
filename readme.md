@@ -16,7 +16,7 @@ composer require dillingham/nova-list-card
 ### Basic Usage Example
 Set the resource for the card
 ```php
-(new NovaListCard\ListCard)
+(new \NovaListCard\ListCard)
     ->resource(\App\Nova\Post::class)
     ->heading('Recent Posts')
     ->subtitle('email')
