@@ -13,13 +13,13 @@ Set the resource for the card
 ```
 
 ### Possible Scenarios
-- Latest resource / Oldest resource ([example](#))
-- Upcoming - latest & custom timestamp ([example](#))
-- Past due - oldest & custom timestamp ([example](#))
-- Top resource by relationship count ([example](#))
-- Worst resource by relationship count ([example](#))
-- Top resource by relationship sum ([example](#))
-- Worst resource by relationship sum ([example](#))
+- Latest resource / Oldest resource
+- Upcoming - latest & custom timestamp 
+- Past due - oldest & custom timestamp 
+- Top resource by relationship count
+- Worst resource by relationship count
+- Top resource by relationship sum
+- Worst resource by relationship sum
 
 ### Available Methods
 
