@@ -14,14 +14,20 @@ composer require dillingham/nova-list-card
 ```
 
 ### Basic Usage Example
-Set the resource for the card
+
+Add to NovaServiceProvider, Resource or Lens cards() section:
+
 ```php
-(new \NovaListCard\ListCard)
-    ->resource(\App\Nova\Post::class)
-    ->heading('Recent Posts')
-    ->subtitle('email')
-    ->timestamp()
-    ->viewAll()
+protected function cards() {
+    return [
+        (new \NovaListCard\ListCard)
+            ->resource(\App\Nova\Post::class)
+            ->heading('Recent Posts')
+            ->subtitle('email')
+            ->timestamp()
+            ->viewAll()
+    ];
+}
 ```
 
 ### Possible Scenarios
