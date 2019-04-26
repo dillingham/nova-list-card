@@ -21,8 +21,8 @@ Add to NovaServiceProvider, Resource or Lens cards() section:
 protected function cards() {
     return [
         (new \NovaListCard\ListCard)
-            ->resource(\App\Nova\Post::class)
-            ->heading('Recent Posts')
+            ->resource(\App\Nova\User::class)
+            ->heading('Recent Users')
             ->subtitle('email')
             ->timestamp()
             ->viewAll()
