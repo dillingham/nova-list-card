@@ -112,12 +112,10 @@ Set the order of the resources:
 
 You can link to the resource's index
 ```php
-->resource(User::class)
 ->viewAll()
 ```
 Or to a lens attached to the resource
 ```php
-->resource(User::class)
 ->viewAllLens('most-popular-users')
 ```
 
@@ -219,6 +217,8 @@ You can also add alternate row formatting
 ```
 
 # Examples
+
+![nova-list-card](https://user-images.githubusercontent.com/29180903/56833461-88905e80-683c-11e9-8a04-e3a7ce8dc582.png)
 
 ```php
 (new ListCard())
