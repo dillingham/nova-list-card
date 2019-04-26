@@ -1,0 +1,30 @@
+{
+    "name": "dillingham/nova-list-card",
+    "description": "List Nova Resources",
+    "keywords": [
+        "laravel",
+        "nova"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0",
+        "watson/aggregate": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "NovaListCard\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NovaListCard\\CardServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
