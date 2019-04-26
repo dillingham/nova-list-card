@@ -1,5 +1,13 @@
 # Nova List Card
+
+[![Latest Version on Github](https://img.shields.io/github/release/dillingham/nova-list-card.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-list-card)
+[![Total Downloads](https://img.shields.io/packagist/dt/dillingham/nova-list-card.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-list-card)
+
+
 Add a variety of lists to your dashboard
+
+![nova-list-card](https://user-images.githubusercontent.com/29180903/56833461-88905e80-683c-11e9-8a04-e3a7ce8dc582.png)
+
 
 ### Basic Usage Example
 Set the resource for the card
@@ -51,7 +59,7 @@ When adding a row value, add second heading
 
 **Resource Subtitle**
 
-Display resource subtitle beneath the title
+Display resource [subtitle](https://nova.laravel.com/docs/2.0/search/global-search.html#subtitles) beneath the title
 ```php
 (new ListCard)
     ->resource(User::class)
