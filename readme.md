@@ -60,9 +60,8 @@ protected function cards() {
 
 
 
-**Multiple Headings**
+**Headings**
 
-When adding a row value, add second heading
 ```php
 ->heading('Top Bloggers', '# Posts')
 ```
@@ -75,11 +74,38 @@ Display resource [subtitle](https://nova.laravel.com/docs/2.0/search/global-sear
     ->resource(User::class)
     ->subtitle(),
 ```
-Display resource proporties beneath the title
+or display resource proporties beneath the title
 ```php
 (new ListCard)
     ->resource(User::class)
     ->subtitle('city'),
+```
+
+**Timestamps**
+
+Defaults are created_at & moment.js format: MM/DD/YYYY:
+```php
+(new ListCard)->timestamp(),
+(new ListCard)->timestamp('due_at'),
+(new ListCard)->timestamp('completed_at', 'MM/DD'),
+```
+Relative timestamps: `5 days ago` | `in 5 days`
+```php
+(new ListCard)->timestamp('completed_at', 'relative'),
+```
+
+**Limit**
+
+Set the number of items to display, default: 5:
+```php
+->limit(3)
+```
+
+**OrderBy**
+
+Set the order of the resources:
+```php
+->orderBy('scheduled_at', 'desc')
 ```
 
 **Show View All Link**
@@ -94,8 +120,6 @@ Or to a lens attached to the resource
 ->resource(User::class)
 ->viewAllLens('most-popular-users')
 ```
-
-
 
 **Side Values**
 
@@ -137,36 +161,6 @@ Timestamp: add third parameter
 ->value('created_at', 'mm/dd'', 'timestamp')
 ```
 
-**Limit**
-
-Set the number of items to display | default: 5:
-```php
-->limit(3)
-```
-
-**OrderBy**
-
-Set the order of the resources:
-```php
-->orderBy('scheduled_at', 'desc')
-```
-Can also order by aggregated columns
-```php
-->orderBy('orders_sum', 'desc')
-```
-
-**Timestamps**
-
-Defaults are created_at & moment.js format: MM/DD/YYYY:
-```php
-(new ListCard)->timestamp(),
-(new ListCard)->timestamp('due_at'),
-(new ListCard)->timestamp('completed_at', 'MM/DD'),
-```
-Relative timestamps: `5 days ago` | `in 5 days`
-```php
-(new ListCard)->timestamp('completed_at', 'relative'),
-```
 
 **Scoped Resource**
 
