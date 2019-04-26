@@ -30,6 +30,8 @@ protected function cards() {
 }
 ```
 
+[View more examples](https://github.com/dillingham/nova-list-card#examples)
+
 ### Possible Scenarios
 - Latest resource / Oldest resource
 - Upcoming - latest & custom timestamp 
