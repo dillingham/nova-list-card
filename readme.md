@@ -8,6 +8,10 @@ Add a variety of lists to your dashboard
 
 ![nova-list-card](https://user-images.githubusercontent.com/29180903/56833461-88905e80-683c-11e9-8a04-e3a7ce8dc582.png)
 
+### Install
+```bash
+composer require dillingham/nova-list-card
+```
 
 ### Basic Usage Example
 Set the resource for the card
