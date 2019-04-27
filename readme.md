@@ -41,7 +41,7 @@ class RecentUsers extends ListCard
     }
 ```
 
-[View more examples](https://github.com/dillingham/nova-list-card#examples)
+[View more examples](https://github.com/dillingham/nova-list-card#examples) | [View more examples](https://github.com/dillingham/nova-list-card#methods)
 
 ### Possible Scenarios
 - Latest resource / oldest resource
@@ -49,27 +49,8 @@ class RecentUsers extends ListCard
 - Top resource by relationship count
 - Top resource by relationship sum
 
-### Available Methods
 
-| Method | Description |
-| - | - |
-| resource() | declare the resource |
-| heading() | add a title to card |
-| subtitle() | display subtitle value |
-| timestamp() | display & format timestamp |
-| value() | display right side value |
-| withCount() | aggregate count value |
-| withSum() | aggregate sum value |
-| orderBy() | set the resource order |
-| limit() | set number of resources |
-| viewAll() | enable view all link |
-| viewAllLens() | enable lens view all |
-| footerLink()| add a static footer link |
-| zebra() | add alternate row color |
-| id() | unique id for card's requests |
-| classes() | add css classes to card |
-
-**Headings**
+**Card Heading**
 
 ```php
 ->heading('Top Bloggers')
@@ -99,20 +80,6 @@ Relative timestamps: `5 days ago` | `in 5 days`
 ->timestamp('completed_at', 'relative'),
 ```
 
-**Limit**
-
-Set the number of items to display, default: 5:
-```php
-->limit(3)
-```
-
-**OrderBy**
-
-Set the order of the resources:
-```php
-->orderBy('scheduled_at', 'desc')
-```
-
 **Side Values**
 
 Display resource values on the right side
@@ -120,7 +87,7 @@ Display resource values on the right side
 ->value('city'),
 ```
 
-**Aggregated Values**
+**Aggregated Count**
 
 Add counts of relationships:
 ```php
@@ -128,7 +95,10 @@ Add counts of relationships:
 ->withCount('posts')
 ->value('category_posts'),
 ```
-Add sum of relationship column:
+
+**Aggregated Sum**
+
+Add sum of relationship's column:
 ```php
 ->resource(User::class)
 ->withSum('orders', 'total')
@@ -148,6 +118,20 @@ Format: 55.2k insread of 55200
 Timestamp: add third parameter
 ```php
 ->value('created_at', 'mm/dd'', 'timestamp')
+```
+
+**Limit**
+
+Set the number of items to display, default: 5:
+```php
+->limit(3)
+```
+
+**OrderBy**
+
+Set the order of the resources:
+```php
+->orderBy('scheduled_at', 'desc')
 ```
 
 **Show View All Link**
@@ -250,3 +234,23 @@ You can also add alternate row formatting
 ->viewAllLens('top-opportunities')
 ->orderBy('opportunities_sum', 'desc'),
 ```
+
+### Methods
+
+| Method | Description |
+| - | - |
+| resource() | declare the resource |
+| heading() | add a title to card |
+| subtitle() | display subtitle value |
+| timestamp() | display & format timestamp |
+| value() | display right side value |
+| withCount() | aggregate count value |
+| withSum() | aggregate sum value |
+| orderBy() | set the resource order |
+| limit() | set number of resources |
+| viewAll() | enable view all link |
+| viewAllLens() | enable lens view all |
+| footerLink()| add a static footer link |
+| zebra() | add alternate row color |
+| id() | unique id for card's requests |
+| classes() | add css classes to card |
