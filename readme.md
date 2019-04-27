@@ -41,7 +41,7 @@ class RecentUsers extends ListCard
     }
 ```
 
-[View more examples](https://github.com/dillingham/nova-list-card#examples) | [View more examples](https://github.com/dillingham/nova-list-card#methods)
+[View more examples](https://github.com/dillingham/nova-list-card#examples)
 
 ### Possible Scenarios
 - Latest resource / oldest resource
