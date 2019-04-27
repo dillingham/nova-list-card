@@ -35,6 +35,7 @@ class RecentUsers extends ListCard
     {
         $this->resource(User::class)
             ->heading('Recent Users')
+            ->orderBy('created_at', 'desc')
             ->timestamp()
             ->viewAll();
     }
@@ -43,13 +44,10 @@ class RecentUsers extends ListCard
 [View more examples](https://github.com/dillingham/nova-list-card#examples)
 
 ### Possible Scenarios
-- Latest resource / Oldest resource
-- Upcoming - latest & custom timestamp
-- Past due - oldest & custom timestamp
+- Latest resource / oldest resource
+- Upcoming / past due resources
 - Top resource by relationship count
-- Worst resource by relationship count
 - Top resource by relationship sum
-- Worst resource by relationship sum
 
 ### Available Methods
 
@@ -74,7 +72,7 @@ class RecentUsers extends ListCard
 **Headings**
 
 ```php
-->heading('Top Bloggers', '# Posts')
+->heading('Top Bloggers')
 ```
 
 **Resource Subtitle**
@@ -115,24 +113,6 @@ Set the order of the resources:
 ->orderBy('scheduled_at', 'desc')
 ```
 
-**Show View All Link**
-
-You can link to the resource's index
-```php
-->viewAll()
-```
-Or to a lens attached to the resource
-```php
-->viewAllLens('most-popular-users')
-```
-
-**Footer Link**
-
-You can link to a urL instead of using viewAll:
-```php
-->footerLink('Google', 'https://google.com')
-```
-
 **Side Values**
 
 Display resource values on the right side
@@ -170,6 +150,23 @@ Timestamp: add third parameter
 ->value('created_at', 'mm/dd'', 'timestamp')
 ```
 
+**Show View All Link**
+
+You can link to the resource's index
+```php
+->viewAll()
+```
+Or to a lens attached to the resource
+```php
+->viewAllLens('most-popular-users')
+```
+
+**Footer Link**
+
+You can link to a urL instead of using viewAll:
+```php
+->footerLink('Google', 'https://google.com')
+```
 
 **Scoped Resource**
 
