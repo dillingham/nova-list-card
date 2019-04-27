@@ -1,25 +1,45 @@
 # Nova List Card
+
+[![Latest Version on Github](https://img.shields.io/github/release/dillingham/nova-list-card.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-list-card)
+[![Total Downloads](https://img.shields.io/packagist/dt/dillingham/nova-list-card.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-list-card)
+
+
 Add a variety of lists to your dashboard
 
-### Basic Usage Example
-Set the resource for the card
-```php
-(new NovaListCard\ListCard)
-    ->resource(\App\Nova\Post::class)
-    ->heading('Recent Posts')
-    ->subtitle('email')
-    ->timestamp()
-    ->viewAll()
+![nova-list-card](https://user-images.githubusercontent.com/29180903/56833461-88905e80-683c-11e9-8a04-e3a7ce8dc582.png)
+
+### Install
+```bash
+composer require dillingham/nova-list-card
 ```
 
+### Basic Usage Example
+
+Add to NovaServiceProvider, Resource or Lens cards() section:
+
+```php
+protected function cards() {
+    return [
+        (new \NovaListCard\ListCard)
+            ->resource(\App\Nova\User::class)
+            ->heading('Recent Users')
+            ->subtitle('email')
+            ->timestamp()
+            ->viewAll()
+    ];
+}
+```
+
+[View more examples](https://github.com/dillingham/nova-list-card#examples)
+
 ### Possible Scenarios
-- Latest resource / Oldest resource ([example](#))
-- Upcoming - latest & custom timestamp ([example](#))
-- Past due - oldest & custom timestamp ([example](#))
-- Top resource by relationship count ([example](#))
-- Worst resource by relationship count ([example](#))
-- Top resource by relationship sum ([example](#))
-- Worst resource by relationship sum ([example](#))
+- Latest resource / Oldest resource
+- Upcoming - latest & custom timestamp
+- Past due - oldest & custom timestamp
+- Top resource by relationship count
+- Worst resource by relationship count
+- Top resource by relationship sum
+- Worst resource by relationship sum
 
 ### Available Methods
 
@@ -43,38 +63,62 @@ Set the resource for the card
 
 
 
-**Multiple Headings**
+**Headings**
 
-When adding a row value, add second heading
 ```php
 ->heading('Top Bloggers', '# Posts')
 ```
 
 **Resource Subtitle**
 
-Display resource subtitle beneath the title
+Display resource [subtitle](https://nova.laravel.com/docs/2.0/search/global-search.html#subtitles) beneath the title
 ```php
 (new ListCard)
     ->resource(User::class)
     ->subtitle(),
 ```
-Display resource proporties beneath the title
+or display resource proporties beneath the title
 ```php
 (new ListCard)
     ->resource(User::class)
     ->subtitle('city'),
 ```
 
+**Timestamps**
+
+Defaults are created_at & moment.js format: MM/DD/YYYY:
+```php
+(new ListCard)->timestamp(),
+(new ListCard)->timestamp('due_at'),
+(new ListCard)->timestamp('completed_at', 'MM/DD'),
+```
+Relative timestamps: `5 days ago` | `in 5 days`
+```php
+(new ListCard)->timestamp('completed_at', 'relative'),
+```
+
+**Limit**
+
+Set the number of items to display, default: 5:
+```php
+->limit(3)
+```
+
+**OrderBy**
+
+Set the order of the resources:
+```php
+->orderBy('scheduled_at', 'desc')
+```
+
 **Show View All Link**
 
 You can link to the resource's index
 ```php
-->resource(User::class)
 ->viewAll()
 ```
 Or to a lens attached to the resource
 ```php
-->resource(User::class)
 ->viewAllLens('most-popular-users')
 ```
 
@@ -125,36 +169,6 @@ Timestamp: add third parameter
 ->value('created_at', 'mm/dd'', 'timestamp')
 ```
 
-**Limit**
-
-Set the number of items to display | default: 5:
-```php
-->limit(3)
-```
-
-**OrderBy**
-
-Set the order of the resources:
-```php
-->orderBy('scheduled_at', 'desc')
-```
-Can also order by aggregated columns
-```php
-->orderBy('orders_sum', 'desc')
-```
-
-**Timestamps**
-
-Defaults are created_at & moment.js format: MM/DD/YYYY:
-```php
-(new ListCard)->timestamp(),
-(new ListCard)->timestamp('due_at'),
-(new ListCard)->timestamp('completed_at', 'MM/DD'),
-```
-Relative timestamps: `5 days ago` | `in 5 days`
-```php
-(new ListCard)->timestamp('completed_at', 'relative'),
-```
 
 **Scoped Resource**
 
@@ -193,9 +207,7 @@ Also includes resource specific classes etc
 ```
 Also can target specific rows
 ```css
-.nova-list-card-item-1 {
-    color: green;
-}
+.nova-list-card-item-1 {}
 .nova-list-card-item-2 {}
 .nova-list-card-item-3 {}
 ```
@@ -213,6 +225,8 @@ You can also add alternate row formatting
 ```
 
 # Examples
+
+![nova-list-card](https://user-images.githubusercontent.com/29180903/56833461-88905e80-683c-11e9-8a04-e3a7ce8dc582.png)
 
 ```php
 (new ListCard())
