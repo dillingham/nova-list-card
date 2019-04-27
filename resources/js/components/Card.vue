@@ -76,14 +76,23 @@
           </div>
         </router-link>
         <div
-          v-if="card.view_all_enabled && items.length == card.limit"
-          class="nova-list-card-view-all border-t border-50 mt-4"
+          v-if="card.footer_link_type"
+          class="nova-list-card-footer-link border-t border-50 mt-4"
         >
           <router-link
-            :to="{ name: card.view_all_route, params: viewAllParams}"
+            v-if="card.footer_link_type != 'href' && items.length == card.limit"
+            :to="{ name: card.footer_link_type, params: card.footer_link_params}"
             class="cursor-pointer text-80 no-underline py-3 font-bold block dim"
-            v-if="card.view_all_enabled"
-          >{{ __('View All') }}</router-link>
+            v-html="card.footer_link_text"
+          />
+
+          <a
+            class="cursor-pointer text-80 no-underline py-3 font-bold block dim"
+            v-if="card.footer_link_type == 'href'"
+            v-html="card.footer_link_params.text"
+            :target="card.footer_link_params.target"
+            :href="card.footer_link_params.href"
+          />
         </div>
       </div>
     </div>

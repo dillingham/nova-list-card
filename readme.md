@@ -36,6 +36,7 @@ Set the resource for the card
 | limit() | set number of resources |
 | viewAll() | enable view all link |
 | viewAllLens() | enable lens view all |
+| footerLink()| add a static footer link |
 | zebra() | add alternate row color |
 | id() | unique id for card's requests |
 | classes() | add css classes to card |
@@ -77,7 +78,12 @@ Or to a lens attached to the resource
 ->viewAllLens('most-popular-users')
 ```
 
+**Footer Link**
 
+You can link to a urL instead of using viewAll:
+```php
+->footerLink('Google', 'https://google.com')
+```
 
 **Side Values**
 
@@ -179,7 +185,7 @@ Customize styles easily if you have your own theme.css
 .nova-list-card-subtitle {}
 .nova-list-card-timestamp {}
 .nova-list-card-value {}
-.nova-list-card-view-all {}
+.nova-list-card-footer-link {}
 ```
 Also includes resource specific classes etc
 ```css

@@ -44,11 +44,11 @@ class ListCard extends Card
 
     public $timestampFormat;
 
-    public $viewAllEnabled = false;
+    public $footerLinkText;
 
-    public $viewAllRoute = 'index';
+    public $footerLinkType;
 
-    public $viewAllKey;
+    public $footerLinkParams = [];
 
     public $classes;
 
@@ -133,16 +133,28 @@ class ListCard extends Card
 
     public function viewAll()
     {
-        $this->viewAllEnabled = true;
-
-        return $this;
+        return $this->footerRoute(__('View All'), 'index');
     }
 
     public function viewAllLens($uriKey)
     {
-        $this->viewAllEnabled = true;
-        $this->viewAllRoute = 'lens';
-        $this->viewAllKey = $uriKey;
+        return $this->footerRoute(__('View All'), 'lens', ['lens' => $uriKey]);
+    }
+
+    public function footerLink($text, $href, $target = '_blank')
+    {
+        return $this->footerRoute($text, 'href', [
+            'text' => $text,
+            'href' => $href,
+            'target' => $target,
+        ]);
+    }
+
+    public function footerRoute($text, $type, $params = [])
+    {
+        $this->footerLinkText = $text;
+        $this->footerLinkType = $type;
+        $this->footerLinkParams = $params;
 
         return $this;
     }
@@ -184,13 +196,26 @@ class ListCard extends Card
             'value_column' => $this->valueColumn,
             'value_format' => $this->valueFormat,
             'value_formatter' => $this->valueFormatter,
-            'view_all_enabled' => $this->viewAllEnabled,
-            'view_all_route' => $this->viewAllRoute,
-            'view_all_key' => $this->viewAllKey,
             'timestamp_column' => $this->timestampColumn,
             'timestamp_enabled' => $this->timestampEnabled,
             'timestamp_format' => $this->timestampFormat,
-        ], parent::jsonSerialize());
+        ], $this->footerLinkSettings(), parent::jsonSerialize());
+    }
+
+    protected function footerLinkSettings()
+    {
+        $settings = [
+            'footer_link_text' => $this->footerLinkText,
+            'footer_link_type' => $this->footerLinkType,
+        ];
+
+        if (!is_null($this->footerLinkType && 'href' != $this->footerLinkType && !isset($this->footerLinkParams['resourceName']))) {
+            $this->footerLinkParams['resourceName'] = $this->resource::uriKey();
+        }
+
+        $settings['footer_link_params'] = $this->footerLinkParams;
+
+        return $settings;
     }
 
     public function authorize(Request $request)
