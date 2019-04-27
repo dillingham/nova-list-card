@@ -3,7 +3,6 @@
 [![Latest Version on Github](https://img.shields.io/github/release/dillingham/nova-list-card.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-list-card)
 [![Total Downloads](https://img.shields.io/packagist/dt/dillingham/nova-list-card.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-list-card)
 
-
 Add a variety of lists to your dashboard
 
 ![nova-list-card](https://user-images.githubusercontent.com/29180903/56833461-88905e80-683c-11e9-8a04-e3a7ce8dc582.png)
@@ -13,21 +12,32 @@ Add a variety of lists to your dashboard
 composer require dillingham/nova-list-card
 ```
 
-### Basic Usage Example
+### Basic Usage
 
-Add to NovaServiceProvider, Resource or Lens cards() section:
+```bash
+php artisan nova:list-card RecentUsers
+```
 
 ```php
-protected function cards() {
-    return [
-        (new \NovaListCard\ListCard)
-            ->resource(\App\Nova\User::class)
+<?php
+
+namespace App\Nova\Metrics;
+
+use App\Nova\User;
+use NovaListCard\ListCard;
+
+class RecentUsers extends ListCard
+{
+    /**
+     * Setup the card options
+     */
+    public function __construct()
+    {
+        $this->resource(User::class)
             ->heading('Recent Users')
-            ->subtitle('email')
             ->timestamp()
-            ->viewAll()
-    ];
-}
+            ->viewAll();
+    }
 ```
 
 [View more examples](https://github.com/dillingham/nova-list-card#examples)
@@ -60,8 +70,6 @@ protected function cards() {
 | zebra() | add alternate row color |
 | id() | unique id for card's requests |
 | classes() | add css classes to card |
-
-
 
 **Headings**
 
@@ -172,10 +180,8 @@ Timestamp: add third parameter
 
 **Scoped Resource**
 
-Pass an ID to the ListCard and check within [IndexQuery](https://nova.laravel.com/docs/2.0/resources/authorization.html#index-filtering):
-```php
-(new ListCard)->id('upcoming-tasks')
-```
+Check the card's uri key within [IndexQuery](https://nova.laravel.com/docs/2.0/resources/authorization.html#index-filtering):
+
 ```php
 public static function indexQuery($request, $query)
 {

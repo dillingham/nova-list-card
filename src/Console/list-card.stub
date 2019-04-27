@@ -1,0 +1,30 @@
+<?php
+
+namespace DummyNamespace;
+
+use App\Nova\User;
+use NovaListCard\ListCard;
+
+class DummyClass extends ListCard
+{
+    /**
+     * Setup the card options
+     */
+    public function __construct()
+    {
+        $this->resource(User::class)
+            ->heading('Recent Users')
+            ->timestamp()
+            ->viewAll();
+    }
+
+    /**
+     * Get the URI key for the metric.
+     *
+     * @return string
+     */
+    public function uriKey()
+    {
+        return 'uri-key';
+    }
+}

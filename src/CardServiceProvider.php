@@ -6,6 +6,7 @@ use Laravel\Nova\Nova;
 use Laravel\Nova\Events\ServingNova;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use NovaListCard\Console\ListCardCommand;
 
 class CardServiceProvider extends ServiceProvider
 {
@@ -21,6 +22,12 @@ class CardServiceProvider extends ServiceProvider
         Nova::serving(function (ServingNova $event) {
             Nova::script('list-card', __DIR__.'/../dist/js/card.js');
         });
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                ListCardCommand::class,
+            ]);
+        }
     }
 
     /**

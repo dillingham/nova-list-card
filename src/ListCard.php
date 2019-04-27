@@ -181,7 +181,7 @@ class ListCard extends Card
     public function jsonSerialize()
     {
         return array_merge([
-            'id' => $this->id,
+            'id' => $this->uriKey(),
             'limit' => $this->limit,
             'uri_key' => $this->resource::uriKey(),
             'relationship' => $this->relationship,
@@ -209,7 +209,7 @@ class ListCard extends Card
             'footer_link_type' => $this->footerLinkType,
         ];
 
-        if (!is_null($this->footerLinkType && 'href' != $this->footerLinkType && !isset($this->footerLinkParams['resourceName']))) {
+        if (!is_null($this->footerLinkType) && 'href' != $this->footerLinkType && !isset($this->footerLinkParams['resourceName'])) {
             $this->footerLinkParams['resourceName'] = $this->resource::uriKey();
         }
 
