@@ -47,7 +47,7 @@ class RecentUsers extends ListCard
 - Latest resource / oldest resource
 - Upcoming / past due resources
 - Top resource by relationship count
-- Top resource by relationship sum
+- Top resource by relationship's column sum
 
 
 **Card Heading**
@@ -115,9 +115,9 @@ Format: 55.2k insread of 55200
 -value('orders_sum', '0.0a') // 55.2k
 -value('orders_sum', '($ 0.00 a)') // $55.2k
 ```
-Timestamp: add third parameter
+Timestamp: add third parameter for [moment.js formats](https://momentjs.com/docs/#/displaying/format/)
 ```php
-->value('created_at', 'mm/dd'', 'timestamp')
+->value('created_at', 'MM/DD'', 'timestamp')
 ```
 
 **Limit**
