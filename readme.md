@@ -81,14 +81,10 @@ class RecentUsers extends ListCard
 
 Display resource [subtitle](https://nova.laravel.com/docs/2.0/search/global-search.html#subtitles) beneath the title
 ```php
-(new ListCard)
-    ->resource(User::class)
     ->subtitle(),
 ```
 or display resource proporties beneath the title
 ```php
-(new ListCard)
-    ->resource(User::class)
     ->subtitle('city'),
 ```
 
@@ -96,13 +92,13 @@ or display resource proporties beneath the title
 
 Defaults are created_at & moment.js format: MM/DD/YYYY:
 ```php
-(new ListCard)->timestamp(),
-(new ListCard)->timestamp('due_at'),
-(new ListCard)->timestamp('completed_at', 'MM/DD'),
+->timestamp(),
+->timestamp('due_at'),
+->timestamp('completed_at', 'MM/DD'),
 ```
 Relative timestamps: `5 days ago` | `in 5 days`
 ```php
-(new ListCard)->timestamp('completed_at', 'relative'),
+->timestamp('completed_at', 'relative'),
 ```
 
 **Limit**
@@ -141,8 +137,6 @@ You can link to a urL instead of using viewAll:
 
 Display resource values on the right side
 ```php
-(new ListCard)
-    ->resource(User::class)
     ->value('city'),
 ```
 
@@ -150,18 +144,17 @@ Display resource values on the right side
 
 Add counts of relationships:
 ```php
-(new ListCard)
     ->resource(Category::class)
     ->withCount('posts')
     ->value('category_posts'),
 ```
 Add sum of relationship column:
 ```php
-(new ListCard)
     ->resource(User::class)
     ->withSum('orders', 'total')
     ->value('orders_sum'),
 ```
+
 **Value formatting**
 
 You can change the value output using [numeral.js](http://numeraljs.com/#format)
@@ -235,29 +228,28 @@ You can also add alternate row formatting
 ![nova-list-card](https://user-images.githubusercontent.com/29180903/56833461-88905e80-683c-11e9-8a04-e3a7ce8dc582.png)
 
 ```php
-(new ListCard())
-    ->resource(Contact::class)
-    ->heading('Recent Contacts')
-    ->subtitle('email')
-    ->timestamp()
-    ->limit(3)
-    ->viewAll(),
-
-(new ListCard())
-    ->resource(Contact::class)
-    ->heading('Contacts: Most tasks', 'Tasks')
-    ->orderBy('tasks_count', 'desc')
-    ->subtitle('email')
-    ->value('tasks_count')
-    ->withCount('tasks')
-    ->zebra()
-    ->viewAll(),
-
-(new ListCard())
-    ->resource(Contact::class)
-    ->heading('Top Opportunities', 'Estimates')
-    ->withSum('opportunities', 'estimate')
-    ->value('opportunities_sum', '0.0a')
-    ->viewAllLens('top-opportunities')
-    ->orderBy('opportunities_sum', 'desc'),
+->resource(Contact::class)
+->heading('Recent Contacts')
+->subtitle('email')
+->timestamp()
+->limit(3)
+->viewAll(),
+```
+```php
+->resource(Contact::class)
+->heading('Contacts: Most tasks', 'Tasks')
+->orderBy('tasks_count', 'desc')
+->subtitle('email')
+->value('tasks_count')
+->withCount('tasks')
+->zebra()
+->viewAll(),
+```
+```php
+->resource(Contact::class)
+->heading('Top Opportunities', 'Estimates')
+->withSum('opportunities', 'estimate')
+->value('opportunities_sum', '0.0a')
+->viewAllLens('top-opportunities')
+->orderBy('opportunities_sum', 'desc'),
 ```
