@@ -81,11 +81,11 @@ class RecentUsers extends ListCard
 
 Display resource [subtitle](https://nova.laravel.com/docs/2.0/search/global-search.html#subtitles) beneath the title
 ```php
-    ->subtitle(),
+->subtitle(),
 ```
 or display resource proporties beneath the title
 ```php
-    ->subtitle('city'),
+->subtitle('city'),
 ```
 
 **Timestamps**
@@ -137,22 +137,22 @@ You can link to a urL instead of using viewAll:
 
 Display resource values on the right side
 ```php
-    ->value('city'),
+->value('city'),
 ```
 
 **Aggregated Values**
 
 Add counts of relationships:
 ```php
-    ->resource(Category::class)
-    ->withCount('posts')
-    ->value('category_posts'),
+->resource(Category::class)
+->withCount('posts')
+->value('category_posts'),
 ```
 Add sum of relationship column:
 ```php
-    ->resource(User::class)
-    ->withSum('orders', 'total')
-    ->value('orders_sum'),
+->resource(User::class)
+->withSum('orders', 'total')
+->value('orders_sum'),
 ```
 
 **Value formatting**
