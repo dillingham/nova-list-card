@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get(
-    '/resources/{resource}/{aggregate?}/{relationship?}/{column?}',
+    '/{key}/{aggregate?}/{relationship?}/{column?}',
     'NovaListCard\Http\Controllers\ResourceController@index'
 );

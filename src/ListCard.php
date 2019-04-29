@@ -8,8 +8,6 @@ use Illuminate\Http\Request;
 
 class ListCard extends Card
 {
-    public $id;
-
     public $width = '1/3';
 
     public $resource;
@@ -171,19 +169,12 @@ class ListCard extends Card
         return $this;
     }
 
-    public function id($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
     public function jsonSerialize()
     {
         return array_merge([
-            'id' => $this->uriKey(),
             'limit' => $this->limit,
-            'uri_key' => $this->resource::uriKey(),
+            'uri_key' => $this->uriKey(),
+            // 'uri_key' => $this->resource::uriKey(),
             'relationship' => $this->relationship,
             'aggregate' => $this->aggregate,
             'aggregate_column' => $this->aggregateColumn,

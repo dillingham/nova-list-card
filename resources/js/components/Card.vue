@@ -1,5 +1,5 @@
 <template>
-  <div :id="card.id" :class="'nova-list-card' + card.classes + ' p-8 bg-white relative'">
+  <div :id="card.uri_key" :class="'nova-list-card' + card.classes + ' p-8 bg-white relative'">
     <div
       class="nova-list-card-heading flex border-b pb-2 mb-2 border-50"
       v-if="card.heading.length != 0"
@@ -172,8 +172,7 @@ export default {
       }
     },
     endpoint() {
-      let endpoint =
-        "/nova-vendor/nova-list-card/resources/" + this.card.uri_key + "/";
+      let endpoint = "/nova-vendor/nova-list-card/" + this.card.uri_key + "/";
 
       if (this.card.relationship) {
         endpoint += this.card.aggregate + "/" + this.card.relationship + "/";
@@ -192,7 +191,7 @@ export default {
           "&limit=" +
           this.card.limit) +
         "&nova-list-card=" +
-        this.card.id
+        this.card.uri_key
       );
     }
   }

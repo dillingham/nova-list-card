@@ -66,7 +66,6 @@ class RecentUsers extends ListCard
 | viewAllLens() | enable lens view all |
 | footerLink()| add a static footer link |
 | zebra() | add alternate row color |
-| id() | unique id for card's requests |
 | classes() | add css classes to card |
 
 **Headings**
@@ -207,7 +206,7 @@ Also can target specific rows
 .nova-list-card-item-2 {}
 .nova-list-card-item-3 {}
 ```
-If you pass an ID with `->id('upcoming-tasks)`
+The uri key is added to the card
 ```css
 #upcoming-tasks {}
 ```

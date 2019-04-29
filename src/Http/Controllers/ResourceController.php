@@ -3,17 +3,21 @@
 namespace NovaListCard\Http\Controllers;
 
 use Laravel\Nova\Nova;
-use Illuminate\Support\Str;
 use Illuminate\Routing\Controller;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class ResourceController extends Controller
 {
-    public function index($resource, $aggregate = 'count', $relationship = null, $column = null)
+    public function index($key, $aggregate = 'count', $relationship = null, $column = null)
     {
         $novaRequest = resolve(NovaRequest::class);
 
-        $resource = 'App\Nova\\'.Str::studly(Str::singular($resource));
+        $card = collect(Nova::$cards)
+            ->filter(function ($card) use ($key) {
+                return $card->uriKey() == $key;
+            })->first();
+
+        $resource = $card->resource;
 
         $query = $resource::newModel();
 
