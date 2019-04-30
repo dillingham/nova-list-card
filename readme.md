@@ -76,8 +76,10 @@ or display resource proporties beneath the title
 
 **Timestamps**
 
-Adds timestamp beneath resource title, 
+Adds timestamp beneath resource title
+
 Optionally can add as a side value, see below.
+
 Defaults: created_at & moment.js format: MM/DD/YYYY:
 ```php
 ->timestamp(),
