@@ -123,10 +123,10 @@ You can change the value output using [numeral.js](http://numeraljs.com/#format)
 -value('orders_sum', '0.0a') // 55.2k
 -value('orders_sum', '($ 0.00 a)') // $55.2k
 ```
-Timestamp: add third parameter for [moment.js formats](https://momentjs.com/docs/#/displaying/format/)
+Value Timestamp: add third parameter for [moment.js formats](https://momentjs.com/docs/#/displaying/format/)
 ```php
 ->value('created_at') // 2019-04-27 00:00:00
-->value('created_at', 'MM/DD'', 'timestamp') // 04/27
+->value('created_at', 'MM/DD', 'timestamp') // 04/27
 ->value('created_at', 'relative', 'timestamp') // 5 days ago
 ```
 
