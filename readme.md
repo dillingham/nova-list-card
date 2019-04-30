@@ -50,6 +50,13 @@ class RecentUsers extends ListCard
 - Top resource by relationship's column sum
 
 
+**Card Width**
+
+Set the card's width, default 1/3
+```php
+->width('3/5')
+```
+
 **Card Heading**
 
 ```php
@@ -69,7 +76,9 @@ or display resource proporties beneath the title
 
 **Timestamps**
 
-Defaults are created_at & moment.js format: MM/DD/YYYY:
+Adds timestamp beneath resource title, 
+Optionally can add as a side value, see below.
+Defaults: created_at & moment.js format: MM/DD/YYYY:
 ```php
 ->timestamp(),
 ->timestamp('due_at'),
@@ -109,7 +118,6 @@ Add sum of relationship's column:
 
 You can change the value output using [numeral.js](http://numeraljs.com/#format)
 
-Format: 55.2k insread of 55200
 ```php
 -value('orders_sum') // 55200
 -value('orders_sum', '0.0a') // 55.2k
@@ -117,7 +125,9 @@ Format: 55.2k insread of 55200
 ```
 Timestamp: add third parameter for [moment.js formats](https://momentjs.com/docs/#/displaying/format/)
 ```php
-->value('created_at', 'MM/DD'', 'timestamp')
+->value('created_at') // 2019-04-27 00:00:00
+->value('created_at', 'MM/DD'', 'timestamp') // 04/27
+->value('created_at', 'relative', 'timestamp') // 5 days ago
 ```
 
 **Limit**
