@@ -11,8 +11,7 @@
     },
     "devDependencies": {
         "cross-env": "^5.0.0",
-        "laravel-mix": "^5.0",
-        "vue-template-compiler": "^2.6.11"
+        "laravel-mix": "^1.0"
     },
     "dependencies": {
         "numeral": "^2.0.6",
