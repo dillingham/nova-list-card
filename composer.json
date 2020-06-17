@@ -1,5 +1,5 @@
 {
-    "name": "phikhi/nova-list-card",
+    "name": "dillingham/nova-list-card",
     "description": "List Nova Resources",
     "keywords": [
         "laravel",
@@ -8,7 +8,7 @@
     "license": "MIT",
     "require": {
         "php": ">=7.1.0",
-        "watson/aggregate": "^3.0"
+        "watson/aggregate": "^2.0|^3.0"
     },
     "autoload": {
         "psr-4": {
