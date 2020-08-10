@@ -1,7 +1,7 @@
 # Nova List Card
 
 [![Latest Version on Github](https://img.shields.io/github/release/dillingham/nova-list-card.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-list-card)
-[![Total Downloads](https://img.shields.io/packagist/dt/dillingham/nova-list-card.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-list-card) [![Twitter Follow](https://img.shields.io/twitter/follow/dillinghammm?color=%231da1f1&label=Twitter&logo=%231da1f1&logoColor=%231da1f1&style=flat-square)](https://twitter.com/dillinghammm)
+[![Total Downloads](https://img.shields.io/packagist/dt/dillingham/nova-list-card.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-list-card) [![Twitter Follow](https://img.shields.io/twitter/follow/dillinghammm?color=%231da1f1&label=Twitter&logo=%231da1f1&logoColor=%231da1f1&style=flat-square)](https://twitter.com/im_brian_d)
 
 Add a variety of lists to your dashboard
 
@@ -266,3 +266,13 @@ You can also add alternate row formatting
 | zebra() | add alternate row color |
 | id() | unique id for card's requests |
 | classes() | add css classes to card |
+
+---
+
+# Author
+
+Hi 👋, Im Brian Dillingham, creator of this Nova package [and others](https://novapackages.com/collaborators/dillingham)
+
+Hope you find it useful. Feel free to reach out with feedback.
+
+Follow me on twitter: [@im_brian_d](https://twitter.com/im_brian_d) 
