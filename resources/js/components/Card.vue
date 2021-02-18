@@ -143,7 +143,7 @@ export default {
       }
     },
     timestampValue(value, format) {
-      let timestamp = moment(value);
+      let timestamp = moment.tz(value, Nova.config.userTimezone);
 
       if (format != "relative") {
         return timestamp.format(format);
