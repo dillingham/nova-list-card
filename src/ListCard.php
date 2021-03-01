@@ -2,9 +2,9 @@
 
 namespace NovaListCard;
 
-use Laravel\Nova\Card;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Laravel\Nova\Card;
 
 class ListCard extends Card
 {
@@ -200,7 +200,7 @@ class ListCard extends Card
             'footer_link_type' => $this->footerLinkType,
         ];
 
-        if (!is_null($this->footerLinkType) && 'href' != $this->footerLinkType && !isset($this->footerLinkParams['resourceName'])) {
+        if (! is_null($this->footerLinkType) && 'href' != $this->footerLinkType && ! isset($this->footerLinkParams['resourceName'])) {
             $this->footerLinkParams['resourceName'] = $this->resource::uriKey();
         }
 

@@ -2,9 +2,9 @@
 
 namespace NovaListCard\Http\Controllers;
 
-use Laravel\Nova\Nova;
 use Illuminate\Routing\Controller;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Nova;
 
 class ResourceController extends Controller
 {
