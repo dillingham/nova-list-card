@@ -3,17 +3,35 @@
     "description": "List Nova Resources",
     "keywords": [
         "laravel",
-        "nova"
+        "nova",
+        "nova-list-card",
+        "recent-list"
     ],
     "license": "MIT",
     "require": {
         "php": ">=7.1.0",
         "watson/aggregate": "^4.0"
     },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.3",
+        "spatie/laravel-ray": "^1.9",
+        "vimeo/psalm": "^4.4"
+    },
     "autoload": {
         "psr-4": {
             "NovaListCard\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NovaListCard\\CardServiceProvider\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "psalm": "vendor/bin/psalm",
+        "test": "vendor/bin/phpunit --colors=always",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
     },
     "extra": {
         "laravel": {
