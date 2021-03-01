@@ -1,6 +1,6 @@
 <?php
 
-namespace PalPalani\NovaListCard\Tests;
+namespace NovaListCard\CardServiceProvider\Tests;
 
 class ExampleTest extends TestCase
 {
