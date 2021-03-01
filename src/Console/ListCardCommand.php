@@ -2,8 +2,8 @@
 
 namespace NovaListCard\Console;
 
-use Illuminate\Support\Str;
 use Illuminate\Console\GeneratorCommand;
+use Illuminate\Support\Str;
 
 class ListCardCommand extends GeneratorCommand
 {
