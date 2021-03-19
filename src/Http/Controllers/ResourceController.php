@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NovaListCard\Http\Controllers;
 
 use Illuminate\Routing\Controller;
@@ -14,7 +16,7 @@ class ResourceController extends Controller
 
         $card = collect(Nova::$cards)
             ->filter(function ($card) use ($key) {
-                return $card->uriKey() == $key;
+                return $card->uriKey() === $key;
             })->first();
 
         $resource = $card->resource;
@@ -54,11 +56,11 @@ class ResourceController extends Controller
 
     public function applyAggregate($query, $aggregate, $relationship, $column = null)
     {
-        if ('count' == $aggregate) {
+        if ('count' === $aggregate) {
             return $query->withCount($relationship);
         }
 
-        if ('sum' == $aggregate) {
+        if ('sum' === $aggregate) {
             return $query->withSum($relationship, $column);
         }
     }

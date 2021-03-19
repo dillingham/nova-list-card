@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NovaListCard;
 
 use Illuminate\Http\Request;
