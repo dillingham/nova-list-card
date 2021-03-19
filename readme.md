@@ -10,6 +10,7 @@ Add a variety of lists to your dashboard
 ![nova-list-card](https://user-images.githubusercontent.com/29180903/56833461-88905e80-683c-11e9-8a04-e3a7ce8dc582.png)
 
 ### Install
+
 ```bash
 composer require dillingham/nova-list-card
 ```
@@ -50,7 +51,6 @@ class RecentUsers extends ListCard
 - Upcoming / past due resources
 - Top resource by relationship count
 - Top resource by relationship's column sum
-
 
 **Card Width**
 
@@ -299,7 +299,7 @@ Hi 👋, Im Brian Dillingham, creator of this Nova package [and others](https://
 
 Hope you find it useful. Feel free to reach out with feedback.
 
-Follow me on twitter: [@im_brian_d](https://twitter.com/im_brian_d) 
+Follow me on the twitter: [@im_brian_d](https://twitter.com/im_brian_d) 
 
 ## License
 
